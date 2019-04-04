@@ -25,7 +25,7 @@ imgext = ".png"
 
 settings =
   fps : 30
-  muted : false
+  muted : true
   paused : false
   volume : 3/8
   scale : 1
