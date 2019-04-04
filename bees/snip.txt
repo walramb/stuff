@@ -1,0 +1,65 @@
+
+timecall = (func) ->
+  starttime = Date.now()
+  func()
+  Date.now()-starttime
+
+
+
+mafs.roundn = ( num, base ) -> Math.round(num/base)*base
+
+closestpoint = (p, pointarr) ->
+  closest = pointarr[0]
+  for point in pointarr
+    if closest.dist(p) > point.dist(p)
+      closest = point
+  return closest
+
+
+selectframe = ( framelist, framewait ) ->
+  totalframes = framelist.length
+  framechoice = Math.floor(tickno/framewait)%totalframes
+  framelist[framechoice]
+
+_cycle = (name, range) ->
+  range.map (n) -> "#{name}#{n}.png"
+
+
+jame.cleanobj = (obj) ->
+  arr= ( [key,val] for own key,val of obj)
+  return _.object arr
+
+
+xmlwrap = (tagname,body) ->
+  xmltag tagname, undefined, body
+
+maketablerow = ( values ) ->
+  tds = values.map (v) -> xmlwrap "td", v
+  return xmlwrap "tr", tds
+jame.maketable = (arrofarr) ->
+  domelm = $ '<table>'
+  for k,v of arrofarr
+    domelm.append maketablerow v
+  return domelm
+
+
+COLLGRIDSIZE=64
+WORLD.collgrid =
+  contents: []
+  clear: -> @contents=[]
+  getraw: (rect,ignore=[]) ->
+    i=Math.floor(rect.x/COLLGRIDSIZE)
+    ar = @contents?[i] or []
+    ar = ar.filter (objrect) -> objrect.obj not in ignore
+    return ar
+  get: (rect,ignore=[]) ->
+    if not Array.isArray(ignore) then ignore=[ignore]
+    i=Math.floor(rect.x/COLLGRIDSIZE)
+    ar = @contents?[i] or []
+    ar = ar.filter (objrect) -> objrect.obj not in ignore
+    return _.pluck ar, 'rect'
+  set: (rect, obj) ->
+    i=Math.floor(rect.x/COLLGRIDSIZE)
+    @contents[i]=@contents[i] or []
+    @contents[i].push {obj,rect}
+

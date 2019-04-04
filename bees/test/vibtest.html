@@ -1,0 +1,19 @@
+<html>
+<body>
+<script src="../jquery.js"></script>
+<script>
+$('body').bind('touchstart',function(){
+navigator.vibrate(10);
+})
+$('body').bind('touchmove',function(){
+navigator.vibrate(20);
+})
+
+document.write("<div style='display:inline-block;background-color:red;width:30pt,height:300px'>x</div>")
+</script>
+<button onmousein="navigator.vibrate(100)" style="width:30pt">ech</button>
+<button onmouseout="navigator.vibrate(10)">ech</button>
+
+</body>
+
+</html>

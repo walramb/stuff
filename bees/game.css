@@ -1,0 +1,73 @@
+body
+{
+  background-color: #111;
+}
+
+.chievbox
+{
+  border-radius: 50px;
+  padding: 8px 32px 8px 8px;
+  background-color: #333;
+  color: white;
+  font-family: sans-serif;
+  display: inline-block;
+  position: absolute;
+  top: -100px;
+  left: 32px;
+}
+
+.chievbox img
+{
+  background-color: #444;
+  float: left;
+  border: 2px solid white;
+  border-radius: 64px;
+}
+
+.toolbar
+{
+  width: 200px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.keyboardlayout
+{
+  display: inline-block;
+  border: 0.2em outset #444;
+  background: #111;
+  color: white;
+  font-weight: bold;
+  padding: 0.5em;
+}
+.keyboardlayout div span
+{
+  cursor: default;
+  border: 0.2em outset #444;
+  width: 1em;
+  display: inline-block;
+  border-radius: 0.2em;
+}
+.keyboardlayout div span.highlight
+{
+  cursor: help;
+  border: 0.2em outset #1a0;
+  background-color: #1a0;
+}
+
+em {
+  display: block;
+}
+footer {
+  background-color: pink;
+  padding: 1em;
+  margin: 0;
+}
+.ticklog {
+  background-color: #eee;
+  border: 2px inset #ccc;
+  margin: 0.5em 0;
+  padding: 0.5em;
+  height: 9em;
+  width: 50%;
+}
