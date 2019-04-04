@@ -30,7 +30,7 @@ settings =
   volume : 3/8
   scale : 1
 jame.settings = settings
-
+###
 ls =
 data: {}
 save: ->
@@ -41,9 +41,9 @@ load: ->
   @data ?= {}
   console.log 'loaded localstorage'
   console.log @data
-
 ls.load()
 settings.muted = ls.data.muted or false
+###
 
 # MVP helper/syntax sugar coming through
 # we're going to be using this a hella lot
@@ -936,8 +936,8 @@ menu =
   if i is 0
     return "mute: " + if settings.muted then "yes" else "no"
   settings.muted = not settings.muted
-  ls.data.muted = settings.muted
-  ls.save()
+  #ls.data.muted = settings.muted
+  #ls.save()
 "volume": (i) -> #HACKWARNING a -1 or +1 argument means L/R arrows were pressed
   if i is 0
     return "volume: " + "|".repeat settings.volume * 8
